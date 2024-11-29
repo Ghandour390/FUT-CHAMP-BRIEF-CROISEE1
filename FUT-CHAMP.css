@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .containerGlobal{
+    background-color: rgb(39, 29, 29);
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+  }
+  
+/* .container{
+  width: 100%;
+    display: grid;
+    grid-template-columns:1fr 2fr ;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+     */
+     #players{
+      
+      background-color: #953636;
+      overflow-y: scroll;
+      height: 100vh;
+
+     } 
+    .les_jouers {
+      width: 100% ;
+      overflow: auto;
+  /* background-color: blue; */
+    }
+    /* #players::-webkit-scrollbar {
+    width: 10px; 
+  }
+  
+  #players::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 5px;
+  }
+  
+  #players::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+  }
+  
+  #players::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   */
+    .staf { grid-area:1 / 2 / 2 / 3;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr) ;
+        grid-template-rows: repeat(7.1fr) ;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        background-image: url("https://th.bing.com/th/id/OIP.ZhWklMtEDwetYysl5bmfsAHaE8?rs=1&pid=ImgDetMain");
+        background-repeat: no-repeat;
+        background-size: 1260px 738px;
+        
+    }
+/* 
+   .player-card {
+    padding-top: 40%;
+    width: 200%;
+
+    border: 10px;
+    color: rgb(90, 133, 49);
+    text-align: center;
+    padding: 2%;
+    position: relative;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  }
+   */
+  /* .player-rating {
+    position: absolute;
+    top: 33%;
+    left: 15%;
+    font-size: 110%;
+    font-weight: bold;
+  }
+  
+  .player-position {
+    position: absolute;
+    top: 26%;
+    left: 15%;
+    font-size: 110%;
+    font-weight: bold;
+    color: antiquewhite;
+  }
+  
+  .player-flag {
+    position: absolute;
+    top: 25%;
+    right: 11%;
+    width: 17%;
+    height: auto;
+  }
+  
+  .club-logo {
+    position: absolute;
+    top: 40%;
+    right: 11%;
+    width: 17%;
+    height: auto;
+  }
+  
+  .player-image {
+    width: 55%;
+    border-radius: 50%;
+    margin: 17% auto;
+  }
+  
+  .player-name {
+    font-size: 98%;
+ position: absolute;
+ top: 55%;
+ left: 22%;
+ text-align: center;
+ color:rgb(32, 23, 23);
+ font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .player-stats {
+   
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2%;
+    position: relative;
+    bottom: 10%;
+    left: 2%;
+    padding-top: 5%;
+  }
+  
+  .player-stats p {
+    font-size: 110%;
+    position: relative;
+    top: -55%;
+  }
+  
+  .player-stats span {
+    font-weight: bold;
+    color: rgb(218, 200, 200);
+    margin-left: 6%;
+  }
+  .imgbkrnd{
+    background-image: url("src/assets/img/badge_ballon_dor.webp");
+   background-size: cover;
+   position: relative;
+   padding-bottom: 20%;
+   background-repeat: no-repeat;
+  } */
+  /* .player-nationality{
+    text-align: start;
+    position: relative;
+    bottom: 40%;
+    left: 15%;
+    color: black;
+  } */
+  .player_card{
+    width: 100px;
+    height: 140px;
+    background-image: url(/src/assets/img/badge_gold.webp);
+    background-size: 90px 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    font-size: 10px;
+  }
+  .player-rating{
+    position: relative;
+    top: 35px;
+    left: 15px;
+  }
+  .player-position{
+    position: relative;
+    top: 35px;
+    left: 15px;
+  }
+  .player-flag{
+    position: relative;
+    top: -20px;
+    left: 62px;
+    width: 20px;
+  }
+.club-logo{
+  width: 15px;
+  position: relative;
+  top: -2px;
+  left: 40px;
+}
+.player-image{
+width: 45px;
+position: relative;
+bottom: 0px;
+left: -17px;
+}
+.player-name{ 
+  width: 100%;
+  font-size: 7px;
+  text-align: center;
+  position: relative;
+bottom: -8px;
+}
+.player-stats {
+ font-size: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  gap: 0px;
+  position: relative;
+  bottom: -13px;
+  left: 15px;
+  padding-top: px;
+}
+
+.player-stats p {
+  font-size: 6px;
+  position: relative;
+  bottom: 6px;
+}
+.player-stats span {
+  font-weight: bold;
+  color: rgb(224, 41, 41);
+ margin-left: 2px;
+}
