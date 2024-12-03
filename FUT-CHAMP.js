@@ -33,7 +33,7 @@ function display(arryPlayers) {
   const joueursHTML = arryPlayers.map(joueurs => {
       if (joueurs.position !== "GK") {
           return `
-          <div class="player_card">
+          <div class="player_card" draggable="true">
               <div class="imgbkrnd">
                   <div class="player-rating">${joueurs.rating}</div>
                   <div class="player-position">${joueurs.position}</div>
@@ -53,7 +53,7 @@ function display(arryPlayers) {
           </div>`;
       } else {
           return `
-          <div class="player_card">
+          <div class="player_card" draggable="true">
               <div class="imgbkrnd">
                   <div class="player-rating">${joueurs.rating}</div>
                   <div class="player-position">${joueurs.position}</div>
@@ -92,40 +92,58 @@ console.log(GK)
 /* <_________________dragan drop__________________________> */
 
 
-let DragE = null;
+// let DragE = null;
 
-document.querySelectorAll(".player_card").forEach(player_card => {
-  player_card.addEventListener('dragstart', (e) => {
-    DragE = e.currentTarget;
-    DragE.classList.add('is-dragging');
-  });
+// document.querySelectorAll(".player_card").forEach(player_card => {
+//   player_card.addEventListener('dragstart', (e) => {
+//     DragE = e.currentTarget;
+//     DragE.classList.add('is-dragging');
+//   });
 
-  player_card.addEventListener('dragend', () => {
-    if (DragE) {
-      DragE.classList.remove('is-dragging');
-      DragE = null; 
-    }
-  });
-});
-
-
-const dropZones = document.querySelectorAll(".drapzon");
+//   player_card.addEventListener('dragend', () => {
+//     if (DragE) {
+//       DragE.classList.remove('is-dragging');
+//       DragE = null; 
+//     }
+//   });
+// });
 
 
-dropZones.forEach(boxP => {
-  boxP.addEventListener('dragover', (e) => {
-    e.preventDefault();  
-  });
+// const dropZones = document.querySelectorAll(".drapzon");
+
+
+// dropZones.forEach(boxP => {
+//   boxP.addEventListener('dragover', (e) => {
+//     e.preventDefault();  
+//   });
 
   
-  boxP.addEventListener('drop', (e) => {
-    e.preventDefault();
-    if (DragE) {
-      boxP.appendChild(DragE); 
-      DragE.classList.remove('is-dragging'); 
-      DragE = null; 
-    }
+//   boxP.addEventListener('drop', (e) => {
+//     e.preventDefault();
+//     if (DragE) {
+//       boxP.appendChild(DragE); 
+//       DragE.classList.remove('is-dragging'); 
+//       DragE = null; 
+//     }
+//   });
+// });
+function DragCard() {
+  let cardjoueurs = document.querySelectorAll('.player_card');
+   
+
+    cardjoueurs.forEach(player_card => {
+        player_card.addEventListener('dragstart', function(e) {
+            drag = player_card;
+            e.dataTransfer.setData('text/plain', player_card.outerHTML);
+            player_card.style.opacity = '0.5';
+        });
+        
+    player_card.addEventListener('dragend', function() {
+      drag = null;
+      player_card.style.opacity = '1';
+    });
   });
-});
+}
+DragCard();
 
 
