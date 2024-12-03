@@ -321,11 +321,12 @@
         "physical": 63
       },
       {
-        "name": "Trent Alexander-Arnold",
+        "name": "Arnold",
         "photo": "https://cdn.sofifa.net/players/231/281/25_120.png",
         "position": "RB",
         "nationality": "England",
         "flag": "https://cdn.sofifa.net/flags/gb-eng.png",
+        "logo": "https://cdn.sofifa.net/meta/team/14/120.png",
         "club": "Liverpool",
         "rating": 87,
         "pace": 76,

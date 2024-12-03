@@ -77,10 +77,11 @@ function display(arryPlayers) {
   function filterByposition(arryPlayers,position){
   return arryPlayers.filter(players =>players.position == position);
   
-  }
+}
+lesJoueurs.innerHTML = joueursHTML;
+
   const RWposition = filterByposition(arryPlayers,"LW");
   console.log(RWposition);
-  lesJoueurs.innerHTML = joueursHTML;
 }
 lesJoueurs.innerHTML = joueursHTML; 
 
@@ -90,41 +91,41 @@ const GK = filterByposition(arryPlayers,"GK");
 console.log(GK)
 /* <_________________dragan drop__________________________> */
 
-// 
-// let DragE = null;
 
-// document.querySelectorAll(".player_card").forEach(player_card => {
-//   player_card.addEventListener('dragstart', (e) => {
-//     DragE = e.currentTarget;
-//     DragE.classList.add('is-dragging');
-//   });
+let DragE = null;
 
-//   player_card.addEventListener('dragend', () => {
-//     if (DragE) {
-//       DragE.classList.remove('is-dragging');
-//       DragE = null; 
-//     }
-//   });
-// });
+document.querySelectorAll(".player_card").forEach(player_card => {
+  player_card.addEventListener('dragstart', (e) => {
+    DragE = e.currentTarget;
+    DragE.classList.add('is-dragging');
+  });
 
-
-// const dropZones = document.querySelectorAll(".drapzon");
+  player_card.addEventListener('dragend', () => {
+    if (DragE) {
+      DragE.classList.remove('is-dragging');
+      DragE = null; 
+    }
+  });
+});
 
 
-// dropZones.forEach(boxP => {
-//   boxP.addEventListener('dragover', (e) => {
-//     e.preventDefault();  
-//   });
+const dropZones = document.querySelectorAll(".drapzon");
+
+
+dropZones.forEach(boxP => {
+  boxP.addEventListener('dragover', (e) => {
+    e.preventDefault();  
+  });
 
   
-//   boxP.addEventListener('drop', (e) => {
-//     e.preventDefault();
-//     if (DragE) {
-//       boxP.appendChild(DragE); 
-//       DragE.classList.remove('is-dragging'); 
-//       DragE = null; 
-//     }
-//   });
-// });
+  boxP.addEventListener('drop', (e) => {
+    e.preventDefault();
+    if (DragE) {
+      boxP.appendChild(DragE); 
+      DragE.classList.remove('is-dragging'); 
+      DragE = null; 
+    }
+  });
+});
 
 
