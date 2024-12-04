@@ -28,9 +28,10 @@
      } 
     .les_jouers {
       width: auto ;
-      overflow: auto;
+      /* overflow: auto; */
       display: grid;
       grid-template-columns: repeat(2,1fr);
+      grid-template-rows: 20px;
   /* background-color: blue; */
     }
     /* #players::-webkit-scrollbar {
@@ -164,7 +165,7 @@
     width: 100px;
     height: 140px;
     background-image: url(/src/assets/img/badge_gold.webp);
-    background-size: 90px 120px;
+    background-size: 90px 140px;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
@@ -182,14 +183,14 @@
   }
   .player-flag{
     position: relative;
-    top: -20px;
+    top: -15px;
     left: 62px;
     width: 20px;
   }
 .club-logo{
   width: 15px;
   position: relative;
-  top: -2px;
+  top: 5px;
   left: 40px;
 }
 .player-image{
@@ -203,23 +204,28 @@ left: -17px;
   font-size: 7px;
   text-align: center;
   position: relative;
-bottom: -8px;
+bottom: -4px;
 }
 .player-stats {
  font-size: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr ;
-  gap: 0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 50px;
+  height:40px ;
+  row-gap: 1px;
+  column-gap: 4px;
   position: relative;
-  bottom: -13px;
+  bottom: 4px;
   left: 15px;
-  padding-top: px;
+  padding-top: 0px;
 }
 
 .player-stats p {
   font-size: 6px;
   position: relative;
-  bottom: 6px;
+  /* bottom: 6px; */
+  height: 2px;
+
 }
 .player-stats span {
   font-weight: bold;
