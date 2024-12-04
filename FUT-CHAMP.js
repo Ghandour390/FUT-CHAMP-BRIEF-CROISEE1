@@ -13,11 +13,14 @@ async function Fetch() {
 
 let arryPlayers = [];
 
+const lesJoueurs = document.getElementById("joueurs")
+
 Fetch().then(playersData => {
   if (playersData) {
       arryPlayers.push(...playersData.players);
       // console.log('Players Array:', arryPlayers);
       display(arryPlayers); 
+
   }
 }).catch(error => {
   console.error('Error fetching data:', error);
@@ -25,125 +28,92 @@ Fetch().then(playersData => {
 
 function display(arryPlayers) {
   const lesJoueurs = document.querySelector("#joueurs");
-  
-  if (!lesJoueurs) {
-      return;
-  }
-// console.log("ana khdam")
-  const joueursHTML = arryPlayers.map(joueurs => {
-      if (joueurs.position !== "GK") {
-          return `
-          <div class="player_card" draggable="true">
-              <div class="imgbkrnd">
-                  <div class="player-rating">${joueurs.rating}</div>
-                  <div class="player-position">${joueurs.position}</div>
-                  <img src="${joueurs.flag}" alt="Drapeau" class="player-flag">
-                  <img src="${joueurs.logo}" alt="Logo Club" class="club-logo">
-                  <img src="${joueurs.photo}" alt="Joueur" class="player-image">
-                  <h2 class="player-name">${joueurs.name}</h2>
-                  <div class="player-stats">
+
+  if (!lesJoueurs) return;
+
+  let joueursHTML = arryPlayers.map(joueurs => {
+    return `
+      <div class="player_card" draggable="true">
+          <div class="imgbkrnd">
+              <div class="player-rating">${joueurs.rating}</div>
+              <div class="player-position">${joueurs.position}</div>
+              <img src="${joueurs.flag}" alt="Drapeau" class="player-flag">
+              <img src="${joueurs.logo}" alt="Logo Club" class="club-logo">
+              <img src="${joueurs.photo}" alt="Joueur" class="player-image">
+              <h2 class="player-name">${joueurs.name}</h2>
+              <div class="player-stats">
+                  ${
+                    joueurs.position !== "GK"
+                      ? `
                       <p>${joueurs.pace}<span>PAC</span></p>
                       <p>${joueurs.shooting}<span>SHO</span></p>
                       <p>${joueurs.passing}<span>PAS</span></p>
                       <p>${joueurs.dribbling}<span>DRI</span></p>
                       <p>${joueurs.defending}<span>DEF</span></p>
                       <p>${joueurs.physical}<span>PHY</span></p>
-                  </div>
-              </div>
-          </div>`;
-      } else {
-          return `
-          <div class="player_card" draggable="true">
-              <div class="imgbkrnd">
-                  <div class="player-rating">${joueurs.rating}</div>
-                  <div class="player-position">${joueurs.position}</div>
-                  <img src="${joueurs.flag}" alt="Drapeau" class="player-flag">
-                  <img src="${joueurs.logo}" alt="Logo Club" class="club-logo">
-                  <img src="${joueurs.photo}" alt="Joueur" class="player-image">
-                  <h2 class="player-name">${joueurs.name}</h2>
-                  <div class="player-stats">
+                      `
+                      : `
                       <p>${joueurs.diving}<span>DIV</span></p>
                       <p>${joueurs.positioning}<span>POS</span></p>
                       <p>${joueurs.handling}<span>HAN</span></p>
                       <p>${joueurs.speed}<span>SPD</span></p>
                       <p>${joueurs.kicking}<span>KIC</span></p>
                       <p>${joueurs.reflexes}<span>REF</span></p>
-                  </div>
+                      `
+                  }
               </div>
-          </div>`;
-      }
+          </div>
+      </div>`;
   }).join('');
-  
-  function filterByposition(arryPlayers,position){
-  return arryPlayers.filter(players =>players.position == position);
-  
-}
-lesJoueurs.innerHTML = joueursHTML;
 
-  const RWposition = filterByposition(arryPlayers,"LW");
-  console.log(RWposition);
-}
-lesJoueurs.innerHTML = joueursHTML; 
+  lesJoueurs.innerHTML = joueursHTML;
 
-Fetch();
+  /* <_________________dragan drop__________________________> */
+  const listejoueurs = document.getElementsByClassName('player_card');
+  let cardjoueurs = Array.from(listejoueurs);
+  const playersBox = document.querySelectorAll('.position');
+  let draggedElement = null;
 
-const GK = filterByposition(arryPlayers,"GK");
-console.log(GK)
-/* <_________________dragan drop__________________________> */
+  cardjoueurs.forEach((el) => {
+    el.addEventListener("dragstart", (e) => {
+      draggedElement = e.currentTarget;
+      e.dataTransfer.effectAllowed = "move";
+    });
 
+    el.addEventListener("dragend", () => {
+      draggedElement = null;
+    });
+  });
 
-// let DragE = null;
+  playersBox.forEach((ele) => {
+    ele.addEventListener("dragover", (e) => {
+      console.log(draggedElement && draggedElement.querySelector('.player-position').textContent, ele.textContent.trim())
+      if (draggedElement && draggedElement.querySelector('.player-position').textContent.trim() === ele.textContent.trim()) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+      }
+    });
 
-// document.querySelectorAll(".player_card").forEach(player_card => {
-//   player_card.addEventListener('dragstart', (e) => {
-//     DragE = e.currentTarget;
-//     DragE.classList.add('is-dragging');
-//   });
-
-//   player_card.addEventListener('dragend', () => {
-//     if (DragE) {
-//       DragE.classList.remove('is-dragging');
-//       DragE = null; 
-//     }
-//   });
-// });
-
-
-// const dropZones = document.querySelectorAll(".drapzon");
-
-
-// dropZones.forEach(boxP => {
-//   boxP.addEventListener('dragover', (e) => {
-//     e.preventDefault();  
-//   });
-
-  
-//   boxP.addEventListener('drop', (e) => {
-//     e.preventDefault();
-//     if (DragE) {
-//       boxP.appendChild(DragE); 
-//       DragE.classList.remove('is-dragging'); 
-//       DragE = null; 
-//     }
-//   });
-// });
-function DragCard() {
-  let cardjoueurs = document.querySelectorAll('.player_card');
-   
-
-    cardjoueurs.forEach(player_card => {
-        player_card.addEventListener('dragstart', function(e) {
-            drag = player_card;
-            e.dataTransfer.setData('text/plain', player_card.outerHTML);
-            player_card.style.opacity = '0.5';
-        });
-        
-    player_card.addEventListener('dragend', function() {
-      drag = null;
-      player_card.style.opacity = '1';
+    ele.addEventListener("drop", (e) => {
+        ele.innerHTML = "";
+        ele.appendChild(draggedElement);
+      
     });
   });
 }
-DragCard();
+
+
+
+  // const RWposition = filterByposition(arryPlayers,"LW");
+  // console.log(RWposition);
+
+
+// Fetch();
+
+// const GK = filterByposition(arryPlayers,"GK");
+// console.log(GK)
+
+
+
 
 

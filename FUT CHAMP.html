@@ -19,28 +19,186 @@
   <body>
     <div class="containerGlobal">
       <div id="players">
-
-        <div class="les_jouers" id="joueurs" draggable="true">
-            
+        <button
+        type="button"
+        class="btn btn-primary mb-3"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        style="background-color: #FFD900; color: #20252A;"
+      >
+        Add Player
+      </button>
+        <div class="les_jouers" id="joueurs" >
+             
         </div>
       </div>
-      <div class="stade">   
+      <div class="stade" >   
        
-            <div class="div1"> GK</div>
-          <div class="div2"> CB</div>
-          <div class="div3"> CB</div>
-          <div class="div4"> RB</div>
-          <div class="div5"> LB</div>
-          <div class="div6"> CM</div>
-          <div class="div7"> CM</div>
-          <div class="div8"> CM</div>
-          <div class="div9"> ST</div>
-          <div class="div10">RW</div>
-          <div class="div11">LW </div>
+            <div class="position" id="div1" draggable="true"> GK</div>
+          <div class="position" id="div2" draggable="true"> CB</div>
+          <div class="position" id="div3" draggable="true"> CB</div>
+          <div class="position" id="div4" draggable="true"> RB</div> 
+          <div class="position" id="div5" draggable="true"> LB</div>
+          <div class="position" id="div6" draggable="true"> CM</div>
+          <div class="position" id="div7" draggable="true"> CM</div>
+          <div class="position" id="div8" draggable="true"> CM</div>
+          <div class="position" id="div9" draggable="true"> ST</div>
+          <div class="position" id="div10" draggable="true">RW</div>
+          <div class="position" id="div11" draggable="true">LW </div>
       
         
            </div>
+     
+           
+          
     </div>
+
+
+
+    <!-- model for ajouter un neauveaux player -->
+    <div
+    class="modal fade "
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    
+  >
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #FFD900; color: #20252A;">
+          <h5 class="modal-title text-center" id="exampleModalLabel" style=" color: #20252A;">Ajouter un Neuveux PLayer</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+
+          <div id="error"></div>
+
+          <form id="form" >
+            <div class="mb-3">
+              <label for="position">position:</label>
+              <select id="position" class="form-select" required>
+                <option value="RW">RW</option>
+                <option value="ST">ST</option>
+                <option value="CM">CM</option>
+                <option value="LW">LW</option>
+                <option value="GK">GK</option>
+                <option value="CDM">CDM</option>
+                <option value="CB">CB</option>
+                <option value="LB">LB</option>
+                <option value="RB">RB</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="photo" class="form-label">photo:</label>
+              <input
+                type="file"
+                id="photo"
+                class="form-control"
+                accept="image/*"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Name" class="form-label">Name:</label>
+              <input type="text" id="Name" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="nationality" class="form-label">nationality:</label>
+              <input
+                type="text"
+                id="nationality"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="flag" class="form-label">flag:</label>
+              <input type="text" id="flag" class="form-control" placeholder="Enter ur Url flag" />
+            </div>
+            <div class="mb-3">
+              <label for="club" class="form-label">club:</label>
+              <input type="text" id="club" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="logo" class="form-label" >logo:</label>
+              <input type="text" id="logo" class="form-control" placeholder="Enter ur Url LOGO" />
+            </div>
+            <div class="mb-3">
+              <label for="rating" class="form-label">rating:</label>
+              <input type="number" id="rating" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <label for="pace" class="form-label">pace:</label>
+              <input type="number" id="pace" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="shooting" class="form-label">shooting:</label>
+              <input
+                type="number"
+                id="shooting"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="passing" class="form-label">passing:</label>
+              <input type="num" id="passing" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="dribbling" class="form-label">dribbling:</label>
+              <input
+                type="number"
+                id="dribbling"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="defending" class="form-label">defending:</label>
+              <input
+                type="number"
+                id="defending"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="physical" class="form-label">physical:</label>
+              <input
+                type="number"
+                id="physical"
+                class="form-control"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+          <button id="submit" type="button" onclick="addPlayer()" class="btn " style="background-color: #FFD900; color: #20252A;" >
+            submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     <script src="FUT-CHAMP.js"></script>
   </body>
 </html>
