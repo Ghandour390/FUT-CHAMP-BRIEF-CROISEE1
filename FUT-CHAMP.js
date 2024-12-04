@@ -164,60 +164,60 @@ function addPlayer() {
     closeModal();
   }
 }
+// ------ajoute les formation entre la carte------------
+// function addCard(position, physical, defending, dribbling, passing, shooting, 
+//                  club, pace, logo, flag, nationality, Name, imageSrc, rating, photo) {
+//   const container = document.getElementById('joueurs');
+//   const card = document.createElement('div');
+//   card.classList.add('card_players');
+//   card.setAttribute('draggable', 'true');
 
-function addCard(position, physical, defending, dribbling, passing, shooting, 
-                 club, pace, logo, flag, nationality, Name, imageSrc, rating, photo) {
-  const container = document.getElementById('joueurs');
-  const card = document.createElement('div');
-  card.classList.add('card_players');
-  card.setAttribute('draggable', 'true');
+//   // ecrit en carte
+//   card.innerHTML = `
+//     <div class="player_card" draggable="true">
+//       <div class="imgbkrnd">
+//         <div class="player-rating">${rating}</div>
+//         <div class="player-position">${position}</div>
+//         <img src="${flag}" alt="Drapeau" class="player-flag">
+//         <img src="${logo}" alt="Logo Club" class="club-logo">
+//         <img src="${imageSrc}" alt="Joueur" class="player-image">
+//         <h2 class="player-name">${Name}</h2>
+//         <div class="player-stats">
+//           ${position !== "GK" 
+//             ? `
+//               <p>${pace}<span>PAC</span></p>
+//               <p>${shooting}<span>SHO</span></p>
+//               <p>${passing}<span>PAS</span></p>
+//               <p>${dribbling}<span>DRI</span></p>
+//               <p>${defending}<span>DEF</span></p>
+//               <p>${physical}<span>PHY</span></p>
+//             `
+//             : `
+//               <p>Goalkeeper stats not implemented</p>
+//             `
+//           }
+//         </div>
+//       </div>
+//     </div>`;
 
-  // Corrected template string with correct variable usage
-  card.innerHTML = `
-    <div class="player_card" draggable="true">
-      <div class="imgbkrnd">
-        <div class="player-rating">${rating}</div>
-        <div class="player-position">${position}</div>
-        <img src="${flag}" alt="Drapeau" class="player-flag">
-        <img src="${logo}" alt="Logo Club" class="club-logo">
-        <img src="${imageSrc}" alt="Joueur" class="player-image">
-        <h2 class="player-name">${Name}</h2>
-        <div class="player-stats">
-          ${position !== "GK" 
-            ? `
-              <p>${pace}<span>PAC</span></p>
-              <p>${shooting}<span>SHO</span></p>
-              <p>${passing}<span>PAS</span></p>
-              <p>${dribbling}<span>DRI</span></p>
-              <p>${defending}<span>DEF</span></p>
-              <p>${physical}<span>PHY</span></p>
-            `
-            : `
-              <p>Goalkeeper stats not implemented</p>
-            `
-          }
-        </div>
-      </div>
-    </div>`;
-
-  container.appendChild(card);
+//   container.appendChild(card);
   
-  // Only call dragItem if the function exists
-  if (typeof dragItem === 'function') {
-    dragItem();
-  }
-}
+//   // 
+//   if (typeof dragItem === 'function') {
+//     dragItem();
+//   }
+// }
 
-function closeModal() {
-  var modalElement = document.getElementById('exampleModal');
-  var modal = bootstrap.Modal.getInstance(modalElement);
+// function closeModal() {
+//   var modalElement = document.getElementById('exampleModal');
+//   var modal = bootstrap.Modal.getInstance(modalElement);
   
-  if (modal) {
-    modal.hide();
-  } else {
+//   if (modal) {
+//     modal.hide();
+//   } else {
 
-    modal = new bootstrap.Modal(modalElement);
-    modal.hide();
-  }
-}
+//     modal = new bootstrap.Modal(modalElement);
+//     modal.hide();
+//   }
+// }
 

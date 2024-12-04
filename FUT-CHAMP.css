@@ -31,7 +31,7 @@
       /* overflow: auto; */
       display: grid;
       grid-template-columns: repeat(2,1fr);
-      grid-template-rows: 20px;
+      
   /* background-color: blue; */
     }
     /* #players::-webkit-scrollbar {
